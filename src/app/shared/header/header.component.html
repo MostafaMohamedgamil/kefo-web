@@ -1,0 +1,46 @@
+<nav aria-label="Main Navigation" role="navigation" id="nav" [ngClass]="{ 'blur-bg': isScrolled }"
+    class="navbar navbar-expand-lg position-fixed w-100 navbar-light bg-black">
+    <a aria-label="Home" (click)="onNavLinkClick()" class="navbar-brand" routerLink="/">
+        <img loading="lazy" src="images/logo.jpeg" alt="Company Logo">
+    </a>
+    <div [ngClass]="{ active: !isCollapsed }" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseBasic" class="toggle navbar-toggler d-flex d-lg-none btn-sm-secondary" type="button">
+        <span></span>
+        <span></span>
+    </div>
+    <!-- #3b82f6 -->
+
+    <div class="collapse navbar-collapse" id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+        <ul class="navbar-nav m-auto">
+            <li class="nav-item">
+                <a aria-label="Home" class="nav-link text-white fw-semibold" aria-current="page" routerLink="/"
+                    (click)="onNavLinkClick()" [routerLinkActiveOptions]="{ exact: true }"
+                    routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a aria-label="About" class="nav-link text-white fw-semibold" aria-current="page"
+                    routerLink="/how-it-works" (click)="onNavLinkClick()" routerLinkActive="active">About</a>
+            </li>
+            <li class="nav-item">
+                <a aria-label="Contact" class="nav-link text-white fw-semibold" routerLink="/what-it-costs"
+                    (click)="onNavLinkClick()" routerLinkActive="active">Contact</a>
+            </li>
+        </ul>
+
+
+        <div>
+            <button class="btn btn-primary btn-color fw-semibold px-4">Login</button>
+        </div>
+
+        <!-- <ul class="download-app_btn navbar-nav d-flex">
+            <li>
+                <a *ngIf="isIOS" [href]="setting.appleStoreLink" target="_blank" class="btn-primary p-2 "
+                    aria-label="Download the app from Apple Store">Download
+                    app</a>
+                <a *ngIf="!isIOS" [href]="setting.googlePlayLink" target="_blank" class="btn-primary p-2 "
+                    aria-label="Download the app from Google Play">Download
+                    app</a>
+            </li>
+        </ul> -->
+    </div>
+</nav>

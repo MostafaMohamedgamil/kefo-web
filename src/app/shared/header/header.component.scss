@@ -1,0 +1,100 @@
+@import "../../../shared/scss/color.scss";
+
+nav {
+  padding: 20px;
+  z-index: 9999;
+  border-bottom: solid #5c5c5c 1px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  max-width: 150px;
+}
+
+.navbar {
+  padding: 1rem 2rem;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+}
+
+.nav-link {
+  margin-right: 1rem;
+  margin-right: 1rem;
+  font-size: clamp(16px, 1.4vw, 20px);
+
+  &.active,
+  &:hover {
+    // color: $main-color !important;
+    color: #eab532 !important;
+    text-decoration: underline;    
+  }
+}
+
+.navbar.blur-bg {
+  backdrop-filter: blur(5px);
+  background-color: rgba(14, 13, 13, 0.8) !important;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.collapse {
+  transition: height 0.35s ease;
+  overflow: hidden;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  border: 0;
+}
+
+.toggle span {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: gray;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.toggle span:nth-child(1) {
+  transform: translate(-50%, -5px);
+  left: 50%;
+}
+
+.toggle.active span:nth-child(1) {
+  transform: translate(-50%, 0) rotate(45deg);
+  transition-delay: 0.125s;
+}
+
+.toggle span:nth-child(2) {
+  transform: translate(-50%, 5px);
+  left: 50%;
+}
+
+.toggle.active span:nth-child(2) {
+  transform: translate(-50%, 0) rotate(135deg);
+  transition-delay: 0.25s;
+}
+
+.toggle.active span:nth-child(3) {
+  transform: translateX(60px);
+}
+
+@media (max-width: 992px) {
+  nav {
+    padding: 10px !important;
+  }
+
+  .download-app_btn {
+    margin: 15px 0;
+  }
+}
