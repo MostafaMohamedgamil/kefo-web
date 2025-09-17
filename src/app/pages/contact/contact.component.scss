@@ -1,0 +1,20 @@
+.contact-page {
+  background: #000;
+  color: #fff;
+
+  .icon-circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-control {
+    &:focus {
+      border: 1px solid #ffc107;
+      box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+    }
+  }
+}
