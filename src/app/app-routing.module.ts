@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/contact/contact.module').then((m) => m.ContactModule),
   },
+  {
+    path: 'wishlist',
+    loadChildren: () =>
+      import('./pages/wishlist/wishlist.module').then((m) => m.WishlistModule),
+  },
 ];
 
 @NgModule({
