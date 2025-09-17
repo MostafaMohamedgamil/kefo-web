@@ -22,6 +22,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/wishlist/wishlist.module').then((m) => m.WishlistModule),
   },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./pages/cart/cart.module').then((m) => m.CartModule),
+  }
 ];
 
 @NgModule({
