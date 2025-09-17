@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+// Bootstrap SCSS
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// @import '@ng-select/ng-select/themes/default.theme.css';
+
+// Custom colors
+@import "app/shared/scss/color.scss";
+
+// Remixicon
+@import "remixicon/fonts/remixicon.css";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    background-color: black;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+// Shared
+.text-color {
+    color: $main-color;
+}
+
+.btn-color {
+    background: linear-gradient(45deg, #eab532, #ebb01f);
+    color: black;
+    border: 0;
+
+    &:hover {
+        background: linear-gradient(45deg, #eab532, #ebb01f);
+        color: black;
+    }
+}
