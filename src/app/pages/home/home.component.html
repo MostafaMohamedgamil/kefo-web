@@ -1,0 +1,143 @@
+<section class="home-section">
+    <div class="container text-center">
+        <!-- Title -->
+        <h1 class="fw-bold mb-4 text-white display-4 text-gradient">
+            Welcome to Lores
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="fs-4 text-light mb-4 mx-auto" style="max-width: 800px;">
+            Discover premium products with unmatched quality and style
+        </p>
+
+        <!-- Button -->
+        <button class="btn btn-primary btn-color btn-lg px-5 py-3">
+            Shop Now
+        </button>
+    </div>
+</section>
+<!-- Two Videos -->
+<section class="featured-videos">
+
+    <div class="container text-center py-5">
+        <!-- <h2 class="fw-bold mb-4 text-light">Featured Videos</h2> -->
+        <h2 class="fs-2 fs-md-1 fw-bold text-center text-white mb-5">
+            Featured Videos
+        </h2>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="YouTube video"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Products -->
+
+<section class="products-section">
+    <div class="container text-center py-5">
+        <h2 class="fs-2 fs-md-1 fw-bold text-center text-white mb-5">
+            Our Products
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-4" *ngFor="let product of products">
+                <div class="card h-100 rounded-3 shadow-lg">
+                    <div class="position-relative">
+                        <div class="img-container ">
+                            <img [src]="hovered === product ? product.hoverImage : product.image"
+                                (mouseenter)="hovered = product" (mouseleave)="hovered = null" />
+                        </div>
+                        <button class="btn btn-color btn-primary position-absolute w-75 d-none"><i
+                                class="ri-shopping-cart-2-line"></i> Add To cart</button>
+                    </div>
+                    <div class="card-body bg-black text-white text-start p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="" class="card-title mb-0">{{ product.title }}</a>
+                            <span>Price: <span class="fw-semibold">{{ product.price }}$</span></span>
+                        </div>
+                        <p class="card-text mt-2">{{ product.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/products" class="btn btn-primary btn-color d-inline-flex align-items-center gap-2">
+                View All Products
+                <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+
+
+    </div>
+</section>
+
+<section class="experience-section py-5 px-3  ">
+    <div class="container text-center">
+        <div class="mx-auto" style="max-width: 900px;">
+
+            <!-- Title -->
+            <h2 class="fw-bold text-white mb-4 display-5">
+                The LORES Experience
+            </h2>
+
+            <!-- Subtitle -->
+            <p class="fs-5 text-secondary mb-5">
+                At LORES, we believe that true style transcends trends.
+                Our commitment to exceptional craftsmanship and timeless design
+                creates products that not only look extraordinary but feel extraordinary too.
+            </p>
+
+            <!-- Features Grid -->
+            <div class="row mt-5 g-4">
+
+                <!-- Feature 1 -->
+                <div class="col-md-4">
+                    <div class="container-star mb-3 d-flex align-items-center justify-content-center mx-auto bg-primary text-white rounded-circle"
+                        style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">★</span>
+                    </div>
+                    <h3 class="fs-4 fw-semibold text-white">Premium Quality</h3>
+                    <p class="text-secondary">
+                        Every product is crafted with meticulous attention to detail and the finest materials.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-md-4">
+                    <div class="container-star mb-3 d-flex align-items-center justify-content-center mx-auto bg-primary text-white rounded-circle"
+                        style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">★</span>
+                    </div>
+                    <h3 class="fs-4 fw-semibold text-white">Timeless Design</h3>
+                    <p class="text-secondary">
+                        Our designs blend contemporary aesthetics with classic elegance for lasting appeal.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-4">
+                    <div class="container-star mb-3 d-flex align-items-center justify-content-center mx-auto bg-primary text-white rounded-circle"
+                        style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">★</span>
+                    </div>
+                    <h3 class="fs-4 fw-semibold text-white">Exceptional Service</h3>
+                    <p class="text-secondary">
+                        From purchase to delivery, we ensure every touchpoint exceeds your expectations.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

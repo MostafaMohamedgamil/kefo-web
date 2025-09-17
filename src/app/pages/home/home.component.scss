@@ -1,0 +1,68 @@
+.home-section {
+    padding: 150px 0 100px 0;
+
+    // background-image: linear-gradient(to right, #111827, #000);
+    .text-gradient {
+        background: linear-gradient(to right, #60a5fa, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.products-section {
+    .card-body {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+
+    }
+
+    button {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .card {
+        .img-container {
+            overflow: hidden;
+
+            img {
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+        }
+
+        &:hover {
+            .img-container {
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+
+            img {
+                transition: all 0.3s ease;
+                scale: 1.05;
+                border-radius: 8px;
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+
+            button {
+                transition: all 0.3s ease;
+                bottom: 10px;
+                display: block !important;
+            }
+
+        }
+    }
+}
+
+.experience-section {
+    background-color: #030303;
+
+    .container-star {
+        background-color: #eab532 !important;
+
+        span {
+            color: black;
+        }
+    }
+}
