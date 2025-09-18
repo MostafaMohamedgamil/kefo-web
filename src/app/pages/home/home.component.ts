@@ -10,6 +10,7 @@ export class HomeComponent {
 
   products = [
     {
+      id: 1,
       title: 'Product 1',
       price: 100,
       image: 'images/minimalist-black-watch.jpg',
@@ -17,6 +18,7 @@ export class HomeComponent {
       description: 'High-quality product that meets your needs.',
     },
     {
+      id: 1,
       title: 'Product 2',
       price: 100,
       image: 'images/modern-white-designer-sneakers.jpg',
@@ -24,6 +26,7 @@ export class HomeComponent {
       description: 'Stylish and durable, perfect for everyday use.',
     },
     {
+      id: 1,
       title: 'Product 3',
       price: 100,
       image: 'images/premium-black-leather-jacket.jpg',
@@ -31,6 +34,7 @@ export class HomeComponent {
       description: 'Premium leather jacket, stylish and comfortable.',
     },
     {
+      id: 1,
       title: 'Product 4',
       price: 100,
       image: 'images/luxury-black-sunglasses.jpg',
@@ -38,6 +42,7 @@ export class HomeComponent {
       description: 'Luxury sunglasses with modern design.',
     },
     {
+      id: 1,
       title: 'Product 5',
       price: 100,
       image: 'images/premium-black-backpack.jpg',

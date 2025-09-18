@@ -1,0 +1,264 @@
+.product-detail {
+  padding: 100px 2rem !important;
+  .breadcrumb {
+    margin-bottom: 1rem;
+
+    .back-link {
+      color: #555;
+      text-decoration: none;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    .images {
+      .main-image img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .thumbs {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        button {
+          border: 2px solid #ccc;
+          border-radius: 8px;
+          overflow: hidden;
+
+          &.active {
+            border-color: #0070f3;
+          }
+
+          img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+    .info {
+      .badges {
+        margin-bottom: .5rem;
+
+        .badge {
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+          margin-right: .5rem;
+          font-size: 0.8rem;
+
+          &.new {
+            background: #0070f3;
+            color: white;
+          }
+
+          &.sale {
+            background: red;
+            color: white;
+          }
+        }
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .rating {
+        margin: 0.5rem 0;
+
+        span {
+          font-size: 1.2rem;
+          color: #ccc;
+
+          &.filled {
+            color: gold;
+          }
+        }
+
+        .count {
+          margin-left: .5rem;
+          color: #555;
+        }
+      }
+
+      .price {
+        margin: 1rem 0;
+
+        .current {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        .old {
+          text-decoration: line-through;
+          margin-left: 1rem;
+          color: #999;
+        }
+      }
+
+      .sizes button {
+        margin: 0.25rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: #f8f8f8;
+        cursor: pointer;
+
+        &.active {
+          background: #0070f3;
+          color: white;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+
+      .quantity {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        button {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .actions {
+        display: flex;
+        gap: 1rem;
+
+        .add-cart {
+          flex: 1;
+          background: #0070f3;
+          color: white;
+          padding: 0.75rem;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .wishlist {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 0.75rem;
+          background: transparent;
+
+          span {
+            font-size: 1.5rem;
+            color: #ccc;
+
+            &.active {
+              color: red;
+            }
+          }
+        }
+      }
+
+      .buy-now {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        background: transparent;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .features {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      background: #eee;
+      border-radius: 4px;
+
+      &.active {
+        background: #0070f3;
+        color: white;
+      }
+    }
+  }
+
+  .tab-content {
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 0.5rem;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+
+  .related {
+    margin-top: 2rem;
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+
+      .card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+
+        img {
+          width: 100%;
+          border-radius: 8px;
+        }
+
+        .badge {
+          margin-top: 0.5rem;
+          display: inline-block;
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+
+          &.new {
+            background: #0070f3;
+            color: white;
+          }
+
+          &.sale {
+            background: red;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

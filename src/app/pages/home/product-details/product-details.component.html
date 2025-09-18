@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="product-detail py-5 pt-5">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a routerLink="/products" class="back-link">
+        ← Back to Products
+      </a>
+    </div>
+
+    <div class="grid">
+      <!-- Product Images -->
+      <div class="images">
+        <div class="main-image">
+          <img [src]="productData.images[selectedImage]" [alt]="productData.name">
+        </div>
+        <div class="thumbs">
+          <button *ngFor="let image of productData.images; let i = index" (click)="selectedImage = i"
+            [class.active]="selectedImage === i">
+            <img [src]="image" [alt]="productData.name + i">
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="info">
+        <div class="badges">
+          <span *ngIf="productData.isNew" class="badge new">New</span>
+          <span *ngIf="productData.isSale" class="badge sale">Sale</span>
+        </div>
+
+        <h1 class="text-white">{{ productData.name }}</h1>
+
+        <div class="rating">
+          <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+            <span [class.filled]="i < productData.rating">★</span>
+          </ng-container>
+          <span class="count">({{ productData.reviewCount }} reviews)</span>
+        </div>
+
+        <div class="price">
+          <span class="current">${{ productData.price }}</span>
+          <span *ngIf="productData.originalPrice" class="old">
+            ${{ productData.originalPrice }}
+          </span>
+        </div>
+
+        <p class="description">{{ productData.description }}</p>
+
+        <!-- Sizes -->
+        <div class="sizes">
+          <button *ngFor="let size of productData.sizes" [disabled]="!size.available"
+            [class.active]="selectedSize === size.name" (click)="selectedSize = size.name">
+            {{ size.name }}
+          </button>
+        </div>
+
+        <!-- Quantity -->
+        <div class="quantity">
+          <button (click)="changeQuantity(quantity - 1)" [disabled]="quantity <= 1">-</button>
+          <span>{{ quantity }}</span>
+          <button (click)="changeQuantity(quantity + 1)" [disabled]="quantity >= maxQuantity">+</button>
+        </div>
+
+        <!-- Buttons -->
+        <div class="actions">
+          <button class="add-cart" (click)="handleAddToCart()">🛒 Add to Cart</button>
+          <button class="wishlist" (click)="handleAddToWishlist()">
+            <span [class.active]="isWishlisted">♥</span>
+          </button>
+        </div>
+        <button class="buy-now">Buy Now</button>
+
+        <!-- Features -->
+        <div class="features">
+          <div>
+            🚚 <p>Free Shipping</p>
+          </div>
+          <div>
+            🛡 <p>2 Year Warranty</p>
+          </div>
+          <div>
+            🔄 <p>30 Day Returns</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button (click)="activeTab = 'details'" [class.active]="activeTab === 'details'">Details</button>
+      <button (click)="activeTab = 'sizing'" [class.active]="activeTab === 'sizing'">Size Chart</button>
+      <button (click)="activeTab = 'reviews'" [class.active]="activeTab === 'reviews'">Reviews</button>
+    </div>
+
+    <div class="tab-content" *ngIf="activeTab === 'details'">
+      <h3>Product Features</h3>
+      <ul>
+        <li *ngFor="let feature of productData.features">• {{ feature }}</li>
+      </ul>
+    </div>
+
+    <div class="tab-content" *ngIf="activeTab === 'sizing'">
+      <h3>Size Chart (inches)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest</th>
+            <th>Waist</th>
+            <th>Length</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of sizeChart">
+            <td>{{ row.size }}</td>
+            <td>{{ row.chest }}</td>
+            <td>{{ row.waist }}</td>
+            <td>{{ row.length }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-content" *ngIf="activeTab === 'reviews'">
+      <h3>Customer Reviews</h3>
+      <p>Reviews feature coming soon...</p>
+    </div>
+
+    <!-- Related Products -->
+    <div class="related">
+      <h2>You Might Also Like</h2>
+      <div class="related-grid">
+        <div class="card" *ngFor="let product of relatedProducts">
+          <img [src]="product.image" [alt]="product.name">
+          <h4>{{ product.name }}</h4>
+          <p>${{ product.price }}</p>
+          <span *ngIf="product.isNew" class="badge new">New</span>
+          <span *ngIf="product.isSale" class="badge sale">Sale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
