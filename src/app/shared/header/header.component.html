@@ -18,22 +18,19 @@
                     routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-                <a aria-label="About" class="nav-link text-white fw-semibold" aria-current="page"
-                    routerLink="/about" (click)="onNavLinkClick()" routerLinkActive="active">About</a>
+                <a aria-label="About" class="nav-link text-white fw-semibold" aria-current="page" routerLink="/about"
+                    (click)="onNavLinkClick()" routerLinkActive="active">About</a>
             </li>
             <li class="nav-item">
-                <a aria-label="Contact" class="nav-link text-white fw-semibold" routerLink="/contact-us"
-                    (click)="onNavLinkClick()" routerLinkActive="active">Contact</a>
+                <a aria-label="Products" class="nav-link text-white fw-semibold" routerLink="/products"
+                    (click)="onNavLinkClick()" routerLinkActive="active">All Products</a>
             </li>
         </ul>
 
 
-        <div>
-            <a href="/cart" class="btn btn-outline-danger me-2" aria-label="Favorites">
-                <i class="ri-shopping-cart-fill"></i>
-            </a>
-            <a href="/wishlist" class="btn btn-outline-danger me-2" aria-label="Favorites">
-                <i class="ri-heart-fill"></i>
+        <div class="d-flex align-items-center">
+            <a href="/cart" class="me-3 fs-5 text-white text-decoration-none" aria-label="Favorites">
+                <i class="ri-shopping-cart-2-line"></i>
             </a>
             <button class="btn btn-primary btn-color fw-semibold px-4">Login</button>
         </div>

@@ -1,3 +1,5 @@
+@import '../../shared/scss/color';
+
 .home-section {
     padding: 150px 0 100px 0;
 
@@ -13,7 +15,7 @@
     .card-body {
         border-bottom-left-radius: 0.5rem;
         border-bottom-right-radius: 0.5rem;
-
+        // background-color: #1f2937;
     }
 
     button {
@@ -55,14 +57,101 @@
     }
 }
 
-.experience-section {
-    background-color: #030303;
+.experience-section1 {
+    background-color: #1f2937;
 
     .container-star {
-        background-color: #eab532 !important;
+        background-color: #10b981 !important;
 
         span {
-            color: black;
+            color: white;
         }
+    }
+}
+
+.experience-section {
+    .dot {
+        width: 10px;
+        height: 10px;
+        // background: var(--bs-primary);
+        background-color: $main-color;
+        border-radius: 50%;
+        margin-top: 8px;
+        flex-shrink: 0;
+    }
+
+    .overlay-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    }
+
+    .experience-description {
+        color: #9ca3af;
+    }
+
+    .text-description {
+        color: #9ca3af;
+    }
+
+    /* Animations */
+    // .animate-on-scroll {
+    //     opacity: 1 !important;
+    //     transition: all 0.8s ease !important;
+    // }
+
+    // .slide-in-left {
+    //     transform: translateX(-50px);
+    // }
+
+    // .slide-in-right {
+    //     transform: translateX(50px);
+    // }
+
+    // .fade-in-up {
+    //     opacity: 1 !important;
+    //     transform: translateY(20px);
+    //     transition: all 0.8s ease !important;
+    // }
+
+    // /* stagger delay */
+    // .stagger-1 {
+    //     transition-delay: 0.2s;
+    // }
+
+    // .stagger-2 {
+    //     transition-delay: 0.4s;
+    // }
+
+    // .stagger-3 {
+    //     transition-delay: 0.6s;
+    // }
+
+    // /* Glow & hover effects */
+    // .pulse-glow {
+    //     animation: pulse 2s infinite;
+    // }
+
+    // .hover-glow:hover {
+    //     box-shadow: 0 0 20px rgba(13, 110, 253, 0.6);
+    // }
+
+    // .hover-lift:hover {
+    //     transform: translateY(-5px);
+    //     transition: transform 0.3s ease;
+    // }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(13, 110, 253, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
     }
 }

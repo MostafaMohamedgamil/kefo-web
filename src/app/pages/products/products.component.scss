@@ -1,0 +1,14 @@
+.card {
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+input.form-control {
+  border: 1px solid #ddd;
+}
+
+.btn {
+  border-radius: 8px;
+}

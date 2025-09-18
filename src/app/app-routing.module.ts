@@ -13,20 +13,15 @@ const routes: Routes = [
       import('./pages/about/about.module').then((m) => m.AboutModule),
   },
   {
-    path: 'contact-us',
-    loadChildren: () =>
-      import('./pages/contact/contact.module').then((m) => m.ContactModule),
-  },
-  {
-    path: 'wishlist',
-    loadChildren: () =>
-      import('./pages/wishlist/wishlist.module').then((m) => m.WishlistModule),
-  },
-  {
     path: 'cart',
     loadChildren: () =>
       import('./pages/cart/cart.module').then((m) => m.CartModule),
-  }
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./pages/products/products.module').then((m) => m.ProductsModule),
+  },
 ];
 
 @NgModule({

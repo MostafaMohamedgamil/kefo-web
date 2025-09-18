@@ -1,0 +1,46 @@
+// .wavy-line {
+//   --s: 44px;  /* حجم الموجة */
+//   --b: 16px;  /* سمك الخط */
+//   --m: 0.4;   /* درجة الانحناء [0 2] */
+
+//   background: #008c9e;
+//   --R: calc(var(--s)*sqrt(var(--m)*var(--m) + 1) + var(--b)/2);
+//   width: calc(2*var(--R));
+//   min-height: 250px;
+
+//   --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+
+//   -webkit-mask-image:
+//     radial-gradient(var(--R) at top 50% right calc(-1*var(--m)*var(--s)), var(--_g)),
+//     radial-gradient(var(--R) at top 50% left calc(-1*var(--m)*var(--s)), var(--_g));
+
+//   -webkit-mask-repeat: repeat-y;
+//   -webkit-mask-size: calc(var(--s) + var(--b)) calc(4*var(--s));
+//   -webkit-mask-position: calc(50% - var(--s)/2 - var(--b)/2) calc(50% - 2*var(--s)),
+//                          calc(50% + var(--s)/2 + var(--b)/2) 50%;
+
+//   mask-image:
+//     radial-gradient(var(--R) at top 50% right calc(-1*var(--m)*var(--s)), var(--_g)),
+//     radial-gradient(var(--R) at top 50% left calc(-1*var(--m)*var(--s)), var(--_g));
+
+//   mask-repeat: repeat-y;
+//   mask-size: calc(var(--s) + var(--b)) calc(4*var(--s));
+//   mask-position: calc(50% - var(--s)/2 - var(--b)/2) calc(50% - 2*var(--s)),
+//                  calc(50% + var(--s)/2 + var(--b)/2) 50%;
+// }
+
+
+// // .wave {
+// //   --size: 50px;
+// //   --m: 0.5;
+// //   --p: calc(var(--m)*var(--size));
+// //   --R: calc(var(--size)*sqrt(var(--m)*var(--m) + 1));
+
+// //   mask:
+// //     radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))), #000 99%, #0000 101%)
+// //       calc(50% - 2 * var(--size)) 0/calc(4 * var(--size)) 100%,
+// //     radial-gradient(var(--R) at 50% calc(100% + var(--p)), #0000 99%, #000 101%) 
+// //       50% calc(100% - var(--size)) / calc(4 * var(--size)) 100% repeat-x;
+// //   background: linear-gradient(90deg,red,blue);
+// //   height: 200px;
+// // }

@@ -25,13 +25,23 @@ video {
     color: $main-color;
 }
 
+.bg-shared {
+    background-color: $main-color;
+}
+
+.bg-card_body {
+    background-color: #1f2937;
+}
+
 .btn-color {
-    background: linear-gradient(45deg, #eab532, #ebb01f);
-    color: black;
+    // background: linear-gradient(45deg, #eab532, #ebb01f);
+    background-color: #10b981;
+    color: white;
     border: 0;
 
     &:hover {
-        background: linear-gradient(45deg, #eab532, #ebb01f);
-        color: black;
+        // background: linear-gradient(45deg, #eab532, #ebb01f);
+        background-color: #10b981;
+        color: white;
     }
 }
