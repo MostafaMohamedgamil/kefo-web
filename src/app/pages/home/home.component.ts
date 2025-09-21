@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   hovered: any = null;
+hoveredId: number | null = null;
 
   products = [
     {
@@ -42,6 +43,14 @@ export class HomeComponent {
       description: 'Luxury sunglasses with modern design.',
     },
     {
+      id: 1,
+      title: 'Product 5',
+      price: 100,
+      image: 'images/premium-black-backpack.jpg',
+      hoverImage: 'images/minimalist-black-watch.jpg',
+      description: 'Durable and spacious black backpack.',
+    },
+     {
       id: 1,
       title: 'Product 5',
       price: 100,

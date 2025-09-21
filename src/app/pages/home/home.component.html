@@ -1,7 +1,7 @@
 <section class="home-section">
     <div class="container text-center">
         <!-- Title -->
-        <h1 class="fw-bold mb-4 text-white display-4 ">
+        <h1 class="fw-bold mb-4 text-black display-4 ">
             Welcome to <span class="text-color">Lores</span>
         </h1>
 
@@ -21,7 +21,7 @@
 
     <div class="container text-center py-5">
         <!-- <h2 class="fw-bold mb-4 text-light">Featured Videos</h2> -->
-        <h2 class="fs-2 fs-md-1 fw-bold text-center text-white mb-5">
+        <h2 class="fs-2 fs-md-1 fw-bold text-center text-black mb-5">
             Featured Videos
         </h2>
 
@@ -46,8 +46,8 @@
 
 <section class="products-section" id="productsSection">
     <div class="container text-center py-5">
-        <h2 class="fs-2 fs-md-1 fw-bold text-center text-white mb-5">
-            Our Products
+        <h2 class="fs-2 fs-md-1 fw-medium text-center text-black mb-5">
+            New Arrivals
         </h2>
         <div class="row g-4">
             <div class="col-md-4" *ngFor="let product of products">
@@ -60,13 +60,13 @@
                         <button class="btn btn-color btn-primary position-absolute w-75 d-none"><i
                                 class="ri-shopping-cart-2-line"></i> Add To cart</button>
                     </div>
-                    <div class="card-body bg-card_body  text-white text-start p-4">
-                        <div class="d-flex justify-content-between align-items-center">
+                    <div class="card-body   text-black text-center ">
+                        <div class=" justify-content-between align-items-center">
                             <a [routerLink]="['/product-details', product.id]" class="card-title mb-0">{{ product.title
                                 }}</a>
-                            <span>Price: <span class="fw-semibold">{{ product.price }}$</span></span>
                         </div>
-                        <p class="card-text mt-2">{{ product.description }}</p>
+                        <span>Price: <span class="fw-semibold">{{ product.price }}$</span></span>
+                        <!-- <p class="card-text mt-2">{{ product.description }}</p> -->
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
             </h2>
 
             <!-- Subtitle -->
-            <p class="fs-5 text-secondary mb-5">
+            <p class="fs-5 text-white mb-5">
                 At LORES, we believe that true style transcends trends.
                 Our commitment to exceptional craftsmanship and timeless design
                 creates products that not only look extraordinary but feel extraordinary too.
@@ -109,7 +109,7 @@
                         <span class="fw-bold fs-4">★</span>
                     </div>
                     <h3 class="fs-4 fw-semibold text-white">Premium Quality</h3>
-                    <p class="text-secondary">
+                    <p class="text-white">
                         Every product is crafted with meticulous attention to detail and the finest materials.
                     </p>
                 </div>
@@ -121,7 +121,7 @@
                         <span class="fw-bold fs-4">★</span>
                     </div>
                     <h3 class="fs-4 fw-semibold text-white">Timeless Design</h3>
-                    <p class="text-secondary">
+                    <p class="text-white">
                         Our designs blend contemporary aesthetics with classic elegance for lasting appeal.
                     </p>
                 </div>
@@ -133,7 +133,7 @@
                         <span class="fw-bold fs-4">★</span>
                     </div>
                     <h3 class="fs-4 fw-semibold text-white">Exceptional Service</h3>
-                    <p class="text-secondary">
+                    <p class="text-white">
                         From purchase to delivery, we ensure every touchpoint exceeds your expectations.
                     </p>
                 </div>
@@ -148,7 +148,7 @@
 
             <!-- النص -->
             <div class="col-12 col-lg-6 animate-on-scroll slide-in-left">
-                <h2 class="fw-bold display-5 text-white mb-4">
+                <h2 class="fw-bold display-5 text-black mb-4">
                     The
                     <span class="text-color pulse-glow">LORES</span> Experience
                 </h2>
@@ -163,7 +163,7 @@
                     <div class="d-flex gap-3">
                         <div class="dot pulse-glow"></div>
                         <div>
-                            <h3 class="h5 fw-semibold text-white mb-2">Artisan Craftsmanship</h3>
+                            <h3 class="h5 fw-semibold text-black mb-2">Artisan Craftsmanship</h3>
                             <p class="text-description">
                                 Every piece is meticulously crafted by skilled artisans using time-honored techniques.
                             </p>
@@ -174,7 +174,7 @@
                     <div class="d-flex gap-3">
                         <div class="dot pulse-glow"></div>
                         <div>
-                            <h3 class="h5 fw-semibold text-white mb-2">Sustainable Luxury</h3>
+                            <h3 class="h5 fw-semibold text-black mb-2">Sustainable Luxury</h3>
                             <p class="text-description">
                                 We're committed to responsible sourcing and sustainable practices without compromising
                                 quality.
@@ -186,7 +186,7 @@
                     <div class="d-flex gap-3">
                         <div class="dot pulse-glow"></div>
                         <div>
-                            <h3 class="h5 fw-semibold text-white mb-2">Timeless Design</h3>
+                            <h3 class="h5 fw-semibold text-black mb-2">Timeless Design</h3>
                             <p class="text-description">
                                 Our designs blend contemporary aesthetics with classic elegance for lasting appeal.
                             </p>

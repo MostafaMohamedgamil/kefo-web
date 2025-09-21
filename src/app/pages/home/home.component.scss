@@ -13,6 +13,7 @@
 
 .products-section {
     .card-body {
+        background-color: white;
         border-bottom-left-radius: 0.5rem;
         border-bottom-right-radius: 0.5rem;
         // background-color: #1f2937;
@@ -24,27 +25,30 @@
     }
 
     .card {
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px !important;
+
         .img-container {
             overflow: hidden;
+            border-radius: 20px;
 
             img {
-                border-top-left-radius: 0.5rem;
-                border-top-right-radius: 0.5rem;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
             }
         }
 
         &:hover {
             .img-container {
-                border-top-left-radius: 0.5rem;
-                border-top-right-radius: 0.5rem;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
             }
 
             img {
                 transition: all 0.3s ease;
                 scale: 1.05;
                 border-radius: 8px;
-                border-top-left-radius: 0.5rem;
-                border-top-right-radius: 0.5rem;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
             }
 
             button {
@@ -58,7 +62,11 @@
 }
 
 .experience-section1 {
-    background-color: #1f2937;
+    background-color: #1e1d1d;
+    // background-image: url('../../../../public/images/bacimg.webp');
+    // background-size: cover;
+    // background-position: center 10px;
+    // background-repeat: no-repeat;
 
     .container-star {
         background-color: #10b981 !important;
