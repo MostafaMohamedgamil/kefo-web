@@ -1,6 +1,11 @@
 // Bootstrap SCSS
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+// Swiper styles
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
 // @import '@ng-select/ng-select/themes/default.theme.css';
 
 // Custom colors
@@ -12,7 +17,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     text-transform: capitalize;
-    background-color: white;
+    // background-color: black;
+    color: black;
 }
 
 img,
@@ -43,5 +49,35 @@ video {
         // background: linear-gradient(45deg, #eab532, #ebb01f);
         background-color: #10b981;
         color: white;
+    }
+}
+
+.custom-tabset {
+    .tab-container {
+        ul {
+            justify-content: center;
+            border: 0;
+            gap: 10px;
+
+            .nav-item {
+                a {
+                    color: #656565;
+                    border: 0;
+
+                    &:hover {
+                        border: 0;
+                        border-bottom: solid black 2px;
+                    }
+                }
+            }
+
+            .nav-item.active {
+                a {
+                    border: 0;
+                    border-bottom: solid black 2px;
+
+                }
+            }
+        }
     }
 }
