@@ -1,12 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { register } from 'swiper/element/bundle';
+
+// Register Swiper custom elements
+register();
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   hovered: any = null;
+
+  // Swiper configuration
+  swiperConfig = {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: false,
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
+    pagination: {
+      clickable: true,
+    },
+    navigation: true,
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+    },
+  };
+
+  ngOnInit() {
+    // Swiper is automatically initialized through custom elements
+  }
 
   products = [
     {
@@ -14,16 +51,22 @@ export class HomeComponent {
       title: 'Product 1',
       price: 100,
       image: 'images/minimalist-black-watch.jpg',
+      imageWomen: 'images/women2.jpg',
+      imageWomenHover: 'images/womenHover2.jpg',
       hoverImage: 'images/modern-white-designer-sneakers.jpg',
-      description: 'High-quality product that meets your needs.',
+      description: 'High-quality product ',
+      stock: '10 In Stock',
     },
     {
       id: 1,
       title: 'Product 2',
       price: 100,
       image: 'images/modern-white-designer-sneakers.jpg',
+      imageWomen: 'images/women5.jpg',
+      imageWomenHover: 'images/womenHover5.jpg',
       hoverImage: 'images/minimalist-black-watch.jpg',
-      description: 'Stylish and durable, perfect for everyday use.',
+      description: 'Stylish and durable, ',
+      stock: '10 In Stock',
     },
     {
       id: 1,
@@ -31,23 +74,32 @@ export class HomeComponent {
       price: 100,
       image: 'images/premium-black-leather-jacket.jpg',
       hoverImage: 'images/minimalist-black-watch.jpg',
-      description: 'Premium leather jacket, stylish and comfortable.',
+      imageWomen: 'images/women1.jpg',
+      imageWomenHover: 'images/womenHover1.jpg',
+      description: 'Premium leather jacket',
+      stock: '10 In Stock',
     },
     {
       id: 1,
       title: 'Product 4',
       price: 100,
       image: 'images/luxury-black-sunglasses.jpg',
+      imageWomen: 'images/women3.jpg',
+      imageWomenHover: 'images/womenHover3.jpg',
       hoverImage: 'images/minimalist-black-watch.jpg',
       description: 'Luxury sunglasses with modern design.',
+      stock: '10 In Stock',
     },
     {
       id: 1,
       title: 'Product 5',
       price: 100,
       image: 'images/premium-black-backpack.jpg',
+      imageWomen: 'images/women4.jpg',
+      imageWomenHover: 'images/womenHover4.jpg',
       hoverImage: 'images/minimalist-black-watch.jpg',
       description: 'Durable and spacious black backpack.',
+      stock: '10 In Stock',
     },
   ];
   items = [
