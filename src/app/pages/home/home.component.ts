@@ -11,6 +11,7 @@ register();
 })
 export class HomeComponent implements OnInit {
   hovered: any = null;
+hoveredId: number | null = null;
 
   // Swiper configuration
   swiperConfig = {
@@ -100,6 +101,14 @@ export class HomeComponent implements OnInit {
       hoverImage: 'images/minimalist-black-watch.jpg',
       description: 'Durable and spacious black backpack.',
       stock: '10 In Stock',
+    },
+     {
+      id: 1,
+      title: 'Product 5',
+      price: 100,
+      image: 'images/premium-black-backpack.jpg',
+      hoverImage: 'images/minimalist-black-watch.jpg',
+      description: 'Durable and spacious black backpack.',
     },
   ];
   items = [
