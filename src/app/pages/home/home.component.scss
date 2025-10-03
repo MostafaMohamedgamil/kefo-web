@@ -171,31 +171,23 @@
 }
 
 .fashion-section {
-  .fashion-item {
-    overflow: hidden; // عشان الصورة متطلعش برا
+    .fashion-item {
+        overflow: hidden; // عشان الصورة متطلعش برا
 
-    img {
-      transition: all 0.3s ease;
-      object-fit: cover;
-      overflow: hidden;
-    }
+        img {
+            transition: all 0.3s ease;
+            object-fit: cover;
+            overflow: hidden;
+        }
 
-    &:hover img {
-      transform: scale(1.05);
-      border-radius: 8px;
+        &:hover img {
+            transform: scale(1.05);
+            border-radius: 8px;
+        }
     }
-  }
 }
 
 
-
-// .parent {
-// display: grid;
-// grid-template-columns: repeat(2, 1fr);
-// grid-template-rows: repeat(2, 1fr);
-// grid-column-gap: 0px;
-// grid-row-gap: 0px;
-// }
 
 .experience-section1 {
     background-color: #1f2937;
