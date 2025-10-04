@@ -25,7 +25,9 @@ img,
 video {
     max-width: 100%;
 }
-
+a{
+    text-decoration: none;
+}
 // Shared
 .text-color {
     color: $main-color;

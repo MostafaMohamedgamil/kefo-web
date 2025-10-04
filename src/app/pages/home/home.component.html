@@ -23,10 +23,10 @@
 
                             <swiper-slide *ngFor="let product of products">
                                 <div class="card h-100 rounded-3  border-0">
-                                    <div class="position-relative">
+                                    <div class="position-relative"> 
                                         <div class="img-container">
                                             <img style="height: 400px; object-fit: cover;"
-                                                [src]="hovered === product ? product.hoverImage : product.image"
+                                                [src]="hovered === product ? product.imageMenHover : product.imageMen"
                                                 (mouseenter)="hovered = product" (mouseleave)="hovered = null"
                                                 alt="{{ product.title }}" />
                                         </div>
@@ -39,7 +39,7 @@
                                         <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
                                             <a [routerLink]="['/product-details', product.id]" class="card-title mb-0">
                                                 <!-- {{ product.title }} -->
-                                                <p class="card-text mt-2">{{ product.description }}</p>
+                                                <p class="card-text product-title fw-semibold mt-2">{{ product.title }}</p>
                                             </a>
                                             <span>Price: <span class="fw-semibold">${{ product.price }}</span></span>
                                             <div><span class="stock-info">{{ product.stock }}</span></div>
@@ -75,14 +75,14 @@
                                         </button>
                                     </div>
                                     <div class="text-center">
-                                        <div class="d-flex justify-content-center align-items-center">
+                                         <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
                                             <a [routerLink]="['/product-details', product.id]" class="card-title mb-0">
                                                 <!-- {{ product.title }} -->
-                                                <p class="card-text mt-2">{{ product.description }}</p>
+                                                <p class="card-text mt-2 product-title fw-semibold">{{ product.title }}</p>
                                             </a>
+                                            <span>Price: <span class="fw-semibold">${{ product.price }}</span></span>
+                                            <div><span class="stock-info">{{ product.stock }}</span></div>
                                         </div>
-                                        <span>Price: <span class="fw-semibold">${{ product.price }}</span></span>
-                                        <div><span class="stock-info">{{ product.stock }}</span></div>
                                     </div>
                                 </div>
                             </swiper-slide>
