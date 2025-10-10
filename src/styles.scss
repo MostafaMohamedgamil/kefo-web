@@ -25,9 +25,11 @@ img,
 video {
     max-width: 100%;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 // Shared
 .text-color {
     color: $main-color;
@@ -83,3 +85,10 @@ a{
         }
     }
 }
+
+//  .swiper-pagination{
+//             .swiper-pagination-bullet{
+//                 width: 10px !important;
+//                 height: 10px !important;
+//             }
+//         }

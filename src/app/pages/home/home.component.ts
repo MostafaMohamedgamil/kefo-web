@@ -13,6 +13,29 @@ export class HomeComponent implements OnInit {
   hovered: any = null;
   hoveredId: number | null = null;
 
+  // Product details section
+  selectedProduct = {
+    title: 'Regitza 0265 Short Dress',
+    price: 60,
+    selectedColor: 'Racing Green',
+    selectedSize: 'XXS',
+    quantity: 1,
+    mainImage: 'images/men1.jpg',
+    thumbnails: [
+      'images/men1.jpg',
+      'images/men2.jpg',
+      'images/men3.jpg',
+      'images/men4.jpg',
+      'images/men5.jpg'
+    ],
+    colors: [
+      { name: 'Racing Green', value: '#1a4a3a' },
+      { name: 'Light Gray', value: '#c0c0c0' },
+      { name: 'Black', value: '#000000' }
+    ],
+    sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL']
+  };
+
   // Swiper configuration
   swiperConfig = {
     slidesPerView: 1,
@@ -25,7 +48,7 @@ export class HomeComponent implements OnInit {
     pagination: {
       clickable: true,
     },
-    navigation: true,
+    navigation: false,
     breakpoints: {
       640: {
         slidesPerView: 1,
@@ -44,6 +67,41 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // Swiper is automatically initialized through custom elements
+  }
+
+  // Product details methods
+  selectImage(imageUrl: string) {
+    this.selectedProduct.mainImage = imageUrl;
+  }
+
+  selectColor(color: { name: string; value: string }) {
+    this.selectedProduct.selectedColor = color.name;
+  }
+
+  selectSize(size: string) {
+    this.selectedProduct.selectedSize = size;
+  }
+
+  increaseQuantity() {
+    if (this.selectedProduct.quantity < 10) {
+      this.selectedProduct.quantity++;
+    }
+  }
+
+  decreaseQuantity() {
+    if (this.selectedProduct.quantity > 1) {
+      this.selectedProduct.quantity--;
+    }
+  }
+
+  addToCart() {
+    console.log('Adding to cart:', {
+      product: this.selectedProduct.title,
+      color: this.selectedProduct.selectedColor,
+      size: this.selectedProduct.selectedSize,
+      quantity: this.selectedProduct.quantity
+    });
+    // Add your cart logic here
   }
 
   products = [
