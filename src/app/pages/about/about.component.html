@@ -1,12 +1,12 @@
-<div class="about-page min-vh-100 bg-black text-white">
+<div class="about-page">
     <!-- Hero Section -->
     <section class="hero-section py-5 px-3 text-center position-relative">
         <div class="container">
-            <div class="d-flex justify-content-center mb-4">
-                <img src="assets/images/logo.png" alt="LORES Logo" width="200" height="80" class="invert-logo" />
+            <div class="d-flex justify-content-center mb-4 pt-4">
+                <img src="images/logo.jpeg" alt="LORES Logo" width="200" height="80" />
             </div>
-            <h1 class="display-4 fw-bold mb-3">About<span class="text-color"> LORES</span></h1>
-            <p class="lead text-secondary mx-auto" style="max-width: 700px;">
+            <h1 class="display-4 fw-bold mb-3 text-black">About<span class="text-color"> LORES</span></h1>
+            <p class="lead text-muted mx-auto" style="max-width: 700px;">
                 Where premium meets purpose. We craft exceptional products that define modern luxury
                 and elevate your everyday experience.
             </p>
@@ -14,32 +14,46 @@
     </section>
 
     <!-- Story Section -->
-    <section class="py-5 px-3">
+    <section class="py-5 px-3 experience-section">
         <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-6">
-                    <h2 class="h2 fw-bold mb-3">Our Story</h2>
-                    <div class="text-secondary lh-lg">
-                        <p>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 animate-on-scroll slide-in-left">
+                    <h2 class="fw-bold display-5 text-black mb-4">Our <span class="text-color pulse-glow">Story</span></h2>
+                    <div class="text-description lh-lg">
+                        <p class="mb-4">
                             Founded in 2020, LORES emerged from a simple belief: that exceptional quality and timeless
-                            design
-                            should be accessible to those who appreciate the finer things in life.
+                            design should be accessible to those who appreciate the finer things in life.
                         </p>
-                        <p>
-                            Our journey began with a small team of passionate designers and craftspeople who shared a
-                            vision of
-                            creating products that transcend trends and stand the test of time.
-                        </p>
-                        <p>
-                            Today, LORES has grown into a global brand trusted by discerning customers who value
-                            authenticity,
-                            quality, and sophisticated design.
-                        </p>
+                        
+                        <div class="d-flex flex-column gap-4">
+                            <div class="d-flex gap-3">
+                                <div class="dot pulse-glow"></div>
+                                <div>
+                                    <h3 class="h5 fw-semibold text-black mb-2">Our Beginning</h3>
+                                    <p class="text-description">
+                                        Our journey began with a small team of passionate designers and craftspeople who shared a vision of creating products that transcend trends.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <div class="dot pulse-glow"></div>
+                                <div>
+                                    <h3 class="h5 fw-semibold text-black mb-2">Global Recognition</h3>
+                                    <p class="text-description">
+                                        Today, LORES has grown into a global brand trusted by discerning customers who value authenticity, quality, and sophisticated design.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="ratio ratio-1x1 bg-dark rounded overflow-hidden">
-                        <img src="images/about-us.jpg" alt="LORES workspace" class="w-100 h-100 object-fit-cover" />
+                    <div class="position-relative hover-lift">
+                        <div class="ratio ratio-1x1 rounded-4 overflow-hidden shadow-lg">
+                            <img src="images/about-us.jpg" alt="LORES workspace" class="w-100 h-100 object-fit-cover hover-glow" />
+                        </div>
+                        <div class="overlay-gradient rounded-4"></div>
                     </div>
                 </div>
             </div>
@@ -47,48 +61,56 @@
     </section>
 
     <!-- Values Section -->
-    <section class="py-5 px-3 bg-dark">
-        <div class="container">
-            <h2 class="h2 fw-bold text-center mb-5">Our Values</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-6 col-lg-3">
-                    <div class="icon-circle mx-auto mb-3 bg-shared">
-                        <i class="ri-star-fill text-black fs-3"></i>
+    <section class="experience-section1 py-5 px-3 my-5">
+        <div class="container text-center">
+            <div class="mx-auto" style="max-width: 900px;">
+                <h2 class="fw-bold text-white mb-4 display-5">Our Values</h2>
+                <p class="fs-5 text-white mb-5">
+                    Our core values guide every decision we make and every product we create,
+                    ensuring that excellence, innovation, and integrity remain at the heart of everything we do.
+                </p>
+                
+                <div class="row mt-5 g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-shared mb-3 d-flex align-items-center justify-content-center mx-auto text-white rounded-circle"
+                            style="width: 60px; height: 60px;">
+                            <i class="ri-star-fill fs-3"></i>
+                        </div>
+                        <h3 class="fs-4 fw-semibold text-white mb-2">Excellence</h3>
+                        <p class="text-white">
+                            We never compromise on quality. Every product meets our highest standards of craftsmanship and design.
+                        </p>
                     </div>
-                    <h3 class="h5 fw-semibold mb-2">Excellence</h3>
-                    <p class="text-secondary">
-                        We never compromise on quality. Every product meets our highest standards of craftsmanship and
-                        design.
-                    </p>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="icon-circle mx-auto mb-3 bg-shared">
-                       <i class="ri-group-line text-black fs-3"></i>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-shared mb-3 d-flex align-items-center justify-content-center mx-auto text-white rounded-circle"
+                            style="width: 60px; height: 60px;">
+                            <i class="ri-group-line fs-3"></i>
+                        </div>
+                        <h3 class="fs-4 fw-semibold text-white mb-2">Community</h3>
+                        <p class="text-white">
+                            Our customers are at the heart of everything we do. We build lasting relationships based on trust and respect.
+                        </p>
                     </div>
-                    <h3 class="h5 fw-semibold mb-2">Community</h3>
-                    <p class="text-secondary">
-                        Our customers are at the heart of everything we do. We build lasting relationships based on
-                        trust and respect.
-                    </p>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="icon-circle mx-auto mb-3 bg-shared">
-                        <i class="ri-lightbulb-line text-black fs-3"></i>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-shared mb-3 d-flex align-items-center justify-content-center mx-auto text-white rounded-circle"
+                            style="width: 60px; height: 60px;">
+                            <i class="ri-lightbulb-line fs-3"></i>
+                        </div>
+                        <h3 class="fs-4 fw-semibold text-white mb-2">Innovation</h3>
+                        <p class="text-white">
+                            We constantly evolve and innovate, pushing the boundaries of design while respecting timeless principles.
+                        </p>
                     </div>
-                    <h3 class="h5 fw-semibold mb-2">Innovation</h3>
-                    <p class="text-secondary">
-                        We constantly evolve and innovate, pushing the boundaries of design while respecting timeless
-                        principles.
-                    </p>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="icon-circle mx-auto mb-3 bg-shared">
-                        <i class="ri-earth-line text-black fs-3"></i>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-shared mb-3 d-flex align-items-center justify-content-center mx-auto text-white rounded-circle"
+                            style="width: 60px; height: 60px;">
+                            <i class="ri-earth-line fs-3"></i>
+                        </div>
+                        <h3 class="fs-4 fw-semibold text-white mb-2">Sustainability</h3>
+                        <p class="text-white">
+                            We're committed to responsible practices that protect our planet for future generations.
+                        </p>
                     </div>
-                    <h3 class="h5 fw-semibold mb-2">Sustainability</h3>
-                    <p class="text-secondary">
-                        We're committed to responsible practices that protect our planet for future generations.
-                    </p>
                 </div>
             </div>
         </div>
@@ -97,61 +119,78 @@
     <!-- Team Section -->
     <section class="py-5 px-3">
         <div class="container">
-            <h2 class="h2 fw-bold text-center mb-5">Meet Our Team</h2>
+            <h2 class="fw-bold text-center mb-4 display-5 text-black">Meet Our <span class="text-color">Team</span></h2>
+            <p class="text-center text-muted mb-5 mx-auto" style="max-width: 600px;">
+                Behind every great product is a passionate team of innovators, creators, and dreamers working together to bring you the best.
+            </p>
             <div class="row g-4 text-center">
                 <div class="col-md-4">
-                    <div class="team-photo mx-auto mb-3">
-                        <img src="images/person.jpg" alt="CEO" class="w-100 h-100" />
+                    <div class="team-member-card">
+                        <div class="team-photo mx-auto mb-3 hover-lift">
+                            <img src="images/person.jpg" alt="CEO" class="w-100 h-100 object-fit-cover" />
+                        </div>
+                        <h3 class="h5 fw-semibold mb-1 text-black">Sarah Chen</h3>
+                        <p class="text-color mb-2 fw-semibold">Founder & CEO</p>
+                        <p class="text-muted small">
+                            Visionary leader with 15+ years in luxury retail and design innovation.
+                        </p>
                     </div>
-                    <h3 class="h5 fw-semibold mb-1">Sarah Chen</h3>
-                    <p class="text-color mb-2">Founder & CEO</p>
-                    <p class="text-secondary small">
-                        Visionary leader with 15+ years in luxury retail and design innovation.
-                    </p>
                 </div>
                 <div class="col-md-4">
-                    <div class="team-photo mx-auto mb-3">
-                        <img src="images/person.jpg" alt="Design Director" class="w-100 h-100" />
+                    <div class="team-member-card">
+                        <div class="team-photo mx-auto mb-3 hover-lift">
+                            <img src="images/person.jpg" alt="Design Director" class="w-100 h-100 object-fit-cover" />
+                        </div>
+                        <h3 class="h5 fw-semibold mb-1 text-black">Marcus Rodriguez</h3>
+                        <p class="text-color mb-2 fw-semibold">Creative Director</p>
+                        <p class="text-muted small">
+                            Award-winning designer who brings artistic vision to every product we create.
+                        </p>
                     </div>
-                    <h3 class="h5 fw-semibold mb-1">Marcus Rodriguez</h3>
-                    <p class="text-color mb-2">Creative Director</p>
-                    <p class="text-secondary small">
-                        Award-winning designer who brings artistic vision to every product we create.
-                    </p>
                 </div>
                 <div class="col-md-4">
-                    <div class="team-photo mx-auto mb-3">
-                        <img src="images/person.jpg" alt="Operations Director" class="w-100 h-100" />
+                    <div class="team-member-card">
+                        <div class="team-photo mx-auto mb-3 hover-lift">
+                            <img src="images/person.jpg" alt="Operations Director" class="w-100 h-100 object-fit-cover" />
+                        </div>
+                        <h3 class="h5 fw-semibold mb-1 text-black">Emma Thompson</h3>
+                        <p class="text-color mb-2 fw-semibold">Operations Director</p>
+                        <p class="text-muted small">
+                            Operations expert ensuring every customer receives exceptional service and quality.
+                        </p>
                     </div>
-                    <h3 class="h5 fw-semibold mb-1">Emma Thompson</h3>
-                    <p class="text-color mb-2">Operations Director</p>
-                    <p class="text-secondary small">
-                        Operations expert ensuring every customer receives exceptional service and quality.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-5 px-3 bg-dark">
+    <section class="service-features-banner py-4" style="background-color: #1c382d;">
         <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col-6 col-md-3">
-                    <div class="h3 fw-bold text-color">50K+</div>
-                    <div class="text-secondary">Happy Customers</div>
+            <div class="row text-center text-white">
+                <div class="col-6 col-md-3 mb-3 mb-md-0">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="h3 fw-bold text-color mb-1">50K+</div>
+                        <div class="text-white">Happy Customers</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-3 mb-md-0">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="h3 fw-bold text-color mb-1">200+</div>
+                        <div class="text-white">Premium Products</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-3 mb-md-0">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="h3 fw-bold text-color mb-1">25+</div>
+                        <div class="text-white">Countries Served</div>
+                    </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="h3 fw-bold text-color">200+</div>
-                    <div class="text-secondary">Premium Products</div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="h3 fw-bold text-color">25+</div>
-                    <div class="text-secondary">Countries Served</div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="h3 fw-bold text-color">4.9</div>
-                    <div class="text-secondary">Average Rating</div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="h3 fw-bold text-color mb-1">4.9</div>
+                        <div class="text-white">Average Rating</div>
+                    </div>
                 </div>
             </div>
         </div>

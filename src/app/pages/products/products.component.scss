@@ -1,14 +1,111 @@
-.card {
-  transition: transform 0.2s ease-in-out;
-  &:hover {
-    transform: translateY(-4px);
-  }
-}
+@import '../../shared/scss/color';
 
-input.form-control {
-  border: 1px solid #ddd;
-}
+.products-section {
+    .header {
+        font-size: clamp(2rem, 6vw, 54px);
+        font-family: 'Lora', serif;
+        color: #656565;
+    }
 
-.btn {
-  border-radius: 8px;
+    .product-card {
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .product-title {
+            font-size: clamp(1rem, 2vw, 16px);
+            color: #333;
+        }
+
+        .img-container {
+            overflow: hidden;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+
+            img {
+                transition: all 0.3s ease;
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+        }
+
+        .add-to-cart-btn {
+            right: 50%;
+            transform: translateX(50%);
+            bottom: -50px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: rgba(60, 64, 67, 0.4) 0px 4px 8px 0px, rgba(60, 64, 67, 0.25) 0px 6px 20px 4px;
+
+            img {
+                scale: 1.05;
+            }
+
+            .add-to-cart-btn {
+                bottom: 10px;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .price-section {
+        .fw-semibold {
+            font-size: 1.1rem;
+        }
+    }
+
+    .rating-section {
+        .stars {
+            font-size: 0.9rem;
+        }
+    }
+
+    .category-badge {
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+    }
+
+    .empty-state {
+        padding: 3rem 1rem;
+        
+        i {
+            opacity: 0.5;
+        }
+    }
+
+    // Form controls styling
+    .form-select {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        
+        &:focus {
+            border-color: var(--bs-primary);
+            box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+        }
+    }
+
+    // Button styling consistent with home page
+    .btn {
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        
+        &.btn-color {
+            background-color: #5d2a42;
+            border-color: #5d2a42;
+            
+            &:hover {
+                background-color: #4a1f34;
+                border-color: #4a1f34;
+                transform: translateY(-2px);
+            }
+        }
+    }
 }
