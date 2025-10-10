@@ -76,14 +76,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Ensure video plays when component loads
-    if (this.videoPlayer && this.videoPlayer.nativeElement) {
-      const video = this.videoPlayer.nativeElement;
-      video.play().catch(error => {
-        console.log('Auto-play was prevented:', error);
-        // If autoplay fails, the user can still use the play button
-      });
-    }
+    // Use setTimeout to ensure the view is fully rendered
+    setTimeout(() => {
+      if (this.videoPlayer && this.videoPlayer.nativeElement) {
+        const video = this.videoPlayer.nativeElement;
+        
+        // Check if it's actually a video element and has the play method
+        if (video && typeof video.play === 'function') {
+          video.play().catch(error => {
+            console.log('Auto-play was prevented:', error);
+            // If autoplay fails, the user can still use the play button
+          });
+        } else {
+          console.log('Video element not ready or play method not available');
+        }
+      }
+    }, 100);
   }
 
   // Product details methods
@@ -202,19 +210,29 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   // Video control methods
   togglePlayPause() {
-    const video = this.videoPlayer.nativeElement;
-    if (video.paused) {
-      video.play();
-      this.isPlaying = true;
-    } else {
-      video.pause();
-      this.isPlaying = false;
+    if (this.videoPlayer && this.videoPlayer.nativeElement) {
+      const video = this.videoPlayer.nativeElement;
+      if (typeof video.play === 'function' && typeof video.pause === 'function') {
+        if (video.paused) {
+          video.play().catch(error => {
+            console.log('Play failed:', error);
+          });
+          this.isPlaying = true;
+        } else {
+          video.pause();
+          this.isPlaying = false;
+        }
+      }
     }
   }
 
   toggleMute() {
-    const video = this.videoPlayer.nativeElement;
-    video.muted = !video.muted;
-    this.isMuted = video.muted;
+    if (this.videoPlayer && this.videoPlayer.nativeElement) {
+      const video = this.videoPlayer.nativeElement;
+      if ('muted' in video) {
+        video.muted = !video.muted;
+        this.isMuted = video.muted;
+      }
+    }
   }
 }
