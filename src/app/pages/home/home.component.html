@@ -1,8 +1,18 @@
-<section class="featured-videos">
+<section class="featured-videos position-relative">
 
-    <video controls style="height: 100vh ;" autoplay loop class="w-100">
+    <video #videoPlayer style="height: 100vh ;" autoplay loop muted class="w-100">
         <source src="/videos/video.mp4" type="video/mp4">
     </video>
+
+    <!-- Custom Video Controls -->
+    <div class="video-controls position-absolute bottom-0 start-0 p-3 d-flex gap-2">
+        <button class="btn btn-outline-light btn-sm" (click)="togglePlayPause()" type="button">
+            <i [class]="isPlaying ? 'ri-pause-line' : 'ri-play-line'"></i>
+        </button>
+        <button class="btn btn-outline-light btn-sm" (click)="toggleMute()" type="button">
+            <i [class]="isMuted ? 'ri-volume-mute-line' : 'ri-volume-up-line'"></i>
+        </button>
+    </div>
 
 </section>
 

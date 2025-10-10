@@ -1,4 +1,4 @@
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 
 // Register Swiper custom elements
@@ -9,7 +9,13 @@ register();
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('videoPlayer', { static: false }) videoPlayer!: ElementRef<HTMLVideoElement>;
+  
+  // Video control properties
+  isPlaying: boolean = true; // Since autoplay is true
+  isMuted: boolean = true; // Since muted is true
+  
   hovered: any = null;
   hoveredId: number | null = null;
 
@@ -67,6 +73,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // Swiper is automatically initialized through custom elements
+  }
+
+  ngAfterViewInit() {
+    // Ensure video plays when component loads
+    if (this.videoPlayer && this.videoPlayer.nativeElement) {
+      const video = this.videoPlayer.nativeElement;
+      video.play().catch(error => {
+        console.log('Auto-play was prevented:', error);
+        // If autoplay fails, the user can still use the play button
+      });
+    }
   }
 
   // Product details methods
@@ -182,4 +199,22 @@ export class HomeComponent implements OnInit {
       desc: 'Our designs blend contemporary aesthetics with classic elegance for lasting appeal.',
     },
   ];
+
+  // Video control methods
+  togglePlayPause() {
+    const video = this.videoPlayer.nativeElement;
+    if (video.paused) {
+      video.play();
+      this.isPlaying = true;
+    } else {
+      video.pause();
+      this.isPlaying = false;
+    }
+  }
+
+  toggleMute() {
+    const video = this.videoPlayer.nativeElement;
+    video.muted = !video.muted;
+    this.isMuted = video.muted;
+  }
 }
