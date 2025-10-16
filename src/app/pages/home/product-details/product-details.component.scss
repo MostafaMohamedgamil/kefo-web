@@ -423,6 +423,7 @@
       }
     }
   }
+
   // Product Tabs Styles
   .product-tabs {
     margin-bottom: 4rem;
@@ -609,133 +610,7 @@
     }
   }
 
-  // Related Products
-  .related-products {
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
 
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-
-      .product-card {
-        background: white;
-        border-radius: 16px;
-        overflow: hidden;
-        border: 1px solid #e5e7eb;
-        transition: all 0.3s ease;
-        cursor: pointer;
-
-        &:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-image {
-          position: relative;
-          aspect-ratio: 1;
-          overflow: hidden;
-
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-          }
-
-          &:hover img {
-            transform: scale(1.1);
-          }
-
-          .card-badges {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            display: flex;
-            gap: 0.5rem;
-
-            .badge {
-              padding: 0.25rem 0.75rem;
-              border-radius: 50px;
-              font-size: 0.75rem;
-              font-weight: 600;
-              text-transform: uppercase;
-
-              &.badge-new {
-                background: #3b82f6;
-                color: white;
-              }
-
-              &.badge-sale {
-                background: #ef4444;
-                color: white;
-              }
-            }
-          }
-        }
-
-        .card-content {
-          padding: 1.5rem;
-
-          h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.75rem;
-          }
-
-          .card-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-
-            .stars {
-              display: flex;
-              gap: 0.125rem;
-
-              svg {
-                color: #d1d5db;
-
-                &.filled {
-                  color: #fbbf24;
-                }
-              }
-            }
-
-            .rating-count {
-              color: #6b7280;
-              font-size: 0.875rem;
-            }
-          }
-
-          .card-price {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-
-            .current-price {
-              font-size: 1.25rem;
-              font-weight: 700;
-              color: #111827;
-            }
-
-            .original-price {
-              color: #9ca3af;
-              text-decoration: line-through;
-              font-size: 1rem;
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 @keyframes fadeIn {
@@ -743,6 +618,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -766,6 +642,7 @@
       }
 
       .action-buttons {
+
         .add-to-cart-btn,
         .buy-now-btn {
           padding: 0.875rem 1.5rem;
@@ -786,18 +663,14 @@
       }
     }
 
-    .related-products {
-      .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.5rem;
-      }
-    }
+
   }
 }
 
 @media (max-width: 640px) {
   .product-detail {
     .product-info {
+
       .size-selection .size-options,
       .product-features {
         gap: 0.5rem;
@@ -818,11 +691,6 @@
       }
     }
 
-    .related-products {
-      .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-      }
-    }
+
   }
 }

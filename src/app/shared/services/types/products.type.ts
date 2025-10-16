@@ -1,18 +1,25 @@
-export type ProductsResponse = ProductsData[]
+export type ProductsResponse = ProductsData[];
 
 export interface ProductsData {
-  id: number
-  name: string
-  description: string
-  price: number
-  color: string
-  isActive: boolean
-  mainImageUrl: string
-  hoverImageUrl?: string
-  productImages: ProductImage[]
-  productSizes: any[]
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  color: string;
+  isActive: boolean;
+  mainImageUrl: string;
+  hoverImageUrl?: string;
+  categoryName: string;
+  productImages: ProductImage[];
+  productSizes: ProductSize[];
 }
 
 export interface ProductImage {
-  imageUrl: string
+  imageUrl: string;
+}
+
+export interface ProductSize {
+  sizeId: number;
+  quantity: number;
+  sizeName: string;
 }

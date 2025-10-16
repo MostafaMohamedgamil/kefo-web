@@ -69,26 +69,16 @@
 
         .img-container {
             overflow: hidden;
-            // border-radius: 20px;
-
-            // img {
-            //     border-top-left-radius: 20px;
-            //     border-top-right-radius: 20px;
-            // }
+           
         }
 
         &:hover {
-            // .img-container {
-            //     border-top-left-radius: 20px;
-            //     border-top-right-radius: 20px;
-            // }
+        
 
             img {
                 transition: all 0.3s ease;
                 scale: 1.05;
                 border-radius: 8px;
-                // border-top-left-radius: 20px;
-                // border-top-right-radius: 20px;
             }
 
             .add-to-cart-btn {

@@ -16,10 +16,10 @@ export class ProductsService {
     return this._HttpClient.get<ProductsResponse>(BASE_URL);
   }
   // api/Products/:id
-  // getProductById(id: number): Observable<any> {
-  //   const BASE_URL = environment.BASE_URL + `api/Products/${id}`;
-  //   return this._HttpClient.get<any>(BASE_URL);
-  // }
+  getProductById(id: number): Observable<any> {
+    const BASE_URL = environment.BASE_URL + `api/Products/${id}`;
+    return this._HttpClient.get<any>(BASE_URL);
+  }
   // createProduct(data: any): Observable<any> {
   //   const BASE_URL = environment.BASE_URL + 'api/Products';
   //   return this._HttpClient.post<any>(BASE_URL, data);

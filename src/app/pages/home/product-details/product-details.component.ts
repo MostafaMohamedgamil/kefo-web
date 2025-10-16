@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ProductsService } from '../../../shared/services/products.service';
+import { ActivatedRoute } from '@angular/router';
 interface Size {
   name: string;
   available: boolean;
@@ -22,7 +24,7 @@ interface RelatedProduct {
   templateUrl: './product-details.component.html',
   imports: [CommonModule],
   standalone: true,
-  styleUrl: './product-details.component.scss'
+  styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent {
   productData = {
@@ -30,11 +32,7 @@ export class ProductDetailsComponent {
     name: 'Premium Leather Jacket',
     price: 299,
     originalPrice: 399,
-    images: [
-      'images/men1.jpg',
-      'images/men2.jpg',
-      'images/men3.jpg',
-    ],
+    images: ['images/men1.jpg', 'images/men2.jpg', 'images/men3.jpg'],
     rating: 4.8,
     reviewCount: 124,
     description:
@@ -59,58 +57,40 @@ export class ProductDetailsComponent {
     category: 'Outerwear',
   };
 
-  sizeChart = [
-    { size: 'XS', chest: '34-36', waist: '28-30', length: '25' },
-    { size: 'S', chest: '36-38', waist: '30-32', length: '26' },
-    { size: 'M', chest: '38-40', waist: '32-34', length: '27' },
-    { size: 'L', chest: '40-42', waist: '34-36', length: '28' },
-    { size: 'XL', chest: '42-44', waist: '36-38', length: '29' },
-    { size: 'XXL', chest: '44-46', waist: '38-40', length: '30' },
-  ];
-
-  relatedProducts: RelatedProduct[] = [
-    {
-      id: '2',
-      name: 'Designer Sneakers',
-      price: 189,
-      image: 'images/men1.jpg',
-      rating: 4.6,
-      reviewCount: 89,
-      isNew: true,
-      isSale: false,
-    },
-    {
-      id: '3',
-      name: 'Minimalist Watch',
-      price: 249,
-      image: 'images/men2.jpg',
-      rating: 4.9,
-      reviewCount: 156,
-      isNew: false,
-      isSale: false,
-    },
-    {
-      id: '4',
-      name: 'Luxury Sunglasses',
-      price: 159,
-      originalPrice: 199,
-      image: 'images/men4.jpg',
-      rating: 4.7,
-      reviewCount: 73,
-      isNew: false,
-      isSale: true,
-    },
-  ];
-
   selectedImage = 0;
   selectedSize: string | null = null;
   quantity = 1;
   isWishlisted = false;
   activeTab: 'details' | 'sizing' | 'reviews' = 'details';
+  constructor(
+    private productsService: ProductsService,
+    private route: ActivatedRoute
+  ) {}
+  ngOnInit() {
+    const productId = this.route.params.subscribe((params) => {
+      const id = +params['id'];
+      this.getProductById(id);
+    });
+    console.log(productId);
+  }
+  productDetails: any;
+  getProductById(id: number) {
+    this.productsService.getProductById(id).subscribe({
+      next: (res) => {
+        this.productDetails = res;
+        console.log(this.productDetails);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 
   get maxQuantity() {
     if (!this.selectedSize) return 1;
-    const size = this.productData.sizes.find(s => s.name === this.selectedSize);
+    const size = this.productData.sizes.find(
+      (s) => s.name === this.selectedSize
+    );
     return size ? size.inStock : 1;
   }
 
@@ -122,7 +102,7 @@ export class ProductDetailsComponent {
     console.log('Added to cart:', {
       productId: this.productData.id,
       size: this.selectedSize,
-      quantity: this.quantity
+      quantity: this.quantity,
     });
   }
 
