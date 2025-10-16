@@ -1,8 +1,18 @@
-<section class="featured-videos">
+<section class="featured-videos position-relative">
 
-    <video style="height: 100vh ;" autoplay loop class="w-100">
+    <video #videoPlayer style="height: 100vh ;" autoplay loop muted class="w-100">
         <source src="/videos/video.mp4" type="video/mp4">
     </video>
+
+    <!-- Custom Video Controls -->
+    <div class="video-controls position-absolute bottom-0 end-0 p-3 d-flex gap-2">
+        <button class="btn btn-outline-light btn-sm" (click)="togglePlayPause()" type="button">
+            <i [class]="isPlaying ? 'ri-pause-line' : 'ri-play-line'"></i>
+        </button>
+        <button class="btn btn-outline-light btn-sm" (click)="toggleMute()" type="button">
+            <i [class]="isMuted ? 'ri-volume-mute-line' : 'ri-volume-up-line'"></i>
+        </button>
+    </div>
 
 </section>
 
@@ -17,7 +27,9 @@
             <tabset>
                 <tab heading="Men" id="tab1">
                     <div class="products-swiper-container">
-                        <swiper-container space-between="30" loop="false" pagination="true" navigation="true"
+                        <swiper-container space-between="30" loop="false" pagination="true" navigation="false"
+                            speed="800" effect="slide" grab-cursor="true" 
+                            touch-ratio="1" threshold="5" autoHeight="false"
                             breakpoints='{"640":{"slidesPerView":1},"768":{"slidesPerView":2},"1024":{"slidesPerView":4}}'
                             class="products-swiper">
 
@@ -26,20 +38,20 @@
                                     <div class="position-relative">
                                         <div class="img-container">
                                             <img style="height: 400px; object-fit: cover;"
-                                                [src]="hovered === product ? product.hoverImage : product.image"
+                                                [src]="hovered === product ? product.imageMenHover : product.imageMen"
                                                 (mouseenter)="hovered = product" (mouseleave)="hovered = null"
                                                 alt="{{ product.title }}" />
                                         </div>
-                                        <button
-                                            class="btn btn-color btn-primary position-absolute w-75 add-to-cart-btn">
-                                            <i class="ri-shopping-cart-2-line"></i> Add To Cart
+                                        <button class="btn btn-color btn-primary position-absolute  add-to-cart-btn">
+                                            <i class="ri-shopping-cart-2-line"></i>
                                         </button>
                                     </div>
                                     <div class="text-center">
                                         <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
                                             <a [routerLink]="['/product-details', product.id]" class="card-title mb-0">
                                                 <!-- {{ product.title }} -->
-                                                <p class="card-text mt-2">{{ product.description }}</p>
+                                                <p class="card-text product-title fw-semibold mt-2">{{ product.title }}
+                                                </p>
                                             </a>
                                             <span>Price: <span class="fw-semibold">${{ product.price }}</span></span>
                                             <div><span class="stock-info">{{ product.stock }}</span></div>
@@ -57,6 +69,8 @@
                 <tab heading="Women" id="tab2">
                     <div class="products-swiper-container">
                         <swiper-container space-between="30" loop="false" pagination="true" navigation="true"
+                            speed="800" effect="slide" grab-cursor="true" 
+                            touch-ratio="1" threshold="5" autoHeight="false"
                             breakpoints='{"640":{"slidesPerView":1},"768":{"slidesPerView":2},"1024":{"slidesPerView":4}}'
                             class="products-swiper">
 
@@ -69,20 +83,20 @@
                                                 (mouseenter)="hovered = product" (mouseleave)="hovered = null"
                                                 alt="{{ product.title }}" />
                                         </div>
-                                        <button
-                                            class="btn btn-color btn-primary position-absolute w-75 add-to-cart-btn">
-                                            <i class="ri-shopping-cart-2-line"></i> Add To Cart
+                                        <button class="btn btn-color btn-primary position-absolute  add-to-cart-btn">
+                                            <i class="ri-shopping-cart-2-line"></i>
                                         </button>
                                     </div>
                                     <div class="text-center">
-                                        <div class="d-flex justify-content-center align-items-center">
+                                        <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
                                             <a [routerLink]="['/product-details', product.id]" class="card-title mb-0">
                                                 <!-- {{ product.title }} -->
-                                                <p class="card-text mt-2">{{ product.description }}</p>
+                                                <p class="card-text mt-2 product-title fw-semibold">{{ product.title }}
+                                                </p>
                                             </a>
+                                            <span>Price: <span class="fw-semibold">${{ product.price }}</span></span>
+                                            <div><span class="stock-info">{{ product.stock }}</span></div>
                                         </div>
-                                        <span>Price: <span class="fw-semibold">${{ product.price }}</span></span>
-                                        <div><span class="stock-info">{{ product.stock }}</span></div>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -112,16 +126,130 @@
 <section class="fashion-section">
     <div class="row">
         <div class="col-lg-6 p-0 d-flex fashion-item">
-            <img class="flex-fill" src="images/fashion1.jpg" alt="">
+            <img class="flex-fill" src="/images/fashion1.jpg" alt="">
         </div>
         <div class="col-lg-6 p-0 d-flex fashion-item">
-            <img class="flex-fill" src="images/fashion2.jpg" alt="">
+            <img class="flex-fill" src="/images/fashion2.jpg" alt="">
         </div>
         <div class="col-lg-12 d-flex fashion-item">
-            <img class="flex-fill" src="images/fashion3.jpg" alt="">
+            <img class="flex-fill" src="/images/fashion3.jpg" alt="">
         </div>
     </div>
 </section>
+
+<!-- Product Details Section -->
+<section class="product-details-section py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Product Image Gallery -->
+            <div class="col-lg-6">
+                <div class="product-gallery">
+                    <!-- Main Product Image -->
+                    <div class="main-image-container mb-3">
+                        <img [src]="selectedProduct.mainImage" [alt]="selectedProduct.title"
+                            class="img-fluid rounded-3 main-product-image">
+                        <span class="badge bg-secondary position-absolute top-0 start-0 m-3">NEW IN</span>
+                    </div>
+
+                    <!-- Thumbnail Images -->
+                    <div class="thumbnail-container d-flex gap-2">
+                        <div *ngFor="let thumb of selectedProduct.thumbnails; let i = index" class="thumbnail-item"
+                            (click)="selectImage(thumb)" [class.active]="selectedProduct.mainImage === thumb">
+                            <img [src]="thumb" [alt]="selectedProduct.title + ' thumbnail ' + (i + 1)"
+                                class="img-fluid rounded-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Information -->
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <!-- Product Title -->
+                    <h1 class="product-title h2 mb-3">{{ selectedProduct.title }}</h1>
+
+                    <!-- Price -->
+                    <div class="price-section mb-3">
+                        <span class="current-price h3 text-dark">${{ selectedProduct.price }}.00</span>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div class="color-selection mb-4">
+                        <label class="form-label fw-semibold">Color: {{ selectedProduct.selectedColor }}</label>
+                        <div class="color-options d-flex gap-2 mt-2">
+                            <div *ngFor="let color of selectedProduct.colors" class="color-option"
+                                (click)="selectColor(color)"
+                                [class.active]="selectedProduct.selectedColor === color.name"
+                                [style.background-color]="color.value" [title]="color.name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Size Selection -->
+                    <div class="size-selection mb-4">
+                        <label class="form-label fw-semibold">Size: {{ selectedProduct.selectedSize }}</label>
+                        <div class="size-options d-flex gap-2 mt-2">
+                            <button *ngFor="let size of selectedProduct.sizes" class="btn size-btn"
+                                (click)="selectSize(size)" [class.active]="selectedProduct.selectedSize === size"
+                                [class.btn-outline-dark]="selectedProduct.selectedSize !== size"
+                                [class.btn-dark]="selectedProduct.selectedSize === size">
+                                {{ size }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Selection -->
+                    <div class="quantity-selection mb-4">
+                        <label class="form-label fw-semibold">Quantity:</label>
+                        <div class="quantity-controls d-flex align-items-center gap-2 mt-2">
+                            <button class="btn btn-outline-secondary btn-sm" (click)="decreaseQuantity()"
+                                [disabled]="selectedProduct.quantity <= 1">
+                                <i class="ri-subtract-line"></i>
+                            </button>
+                            <input type="number" class="form-control text-center quantity-input"
+                                [(ngModel)]="selectedProduct.quantity" min="1" max="10">
+                            <button class="btn btn-outline-secondary btn-sm" (click)="increaseQuantity()"
+                                [disabled]="selectedProduct.quantity >= 10">
+                                <i class="ri-add-line"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart Button -->
+                    <div class="add-to-cart-section mb-4">
+                        <button class="btn btn-dark btn-lg w-100 add-to-cart-main-btn" (click)="addToCart()">
+                            ADD TO CART
+                        </button>
+                    </div>
+
+                    <!-- Share Options -->
+                    <div class="share-section">
+                        <span class="share-label me-3">Share</span>
+                        <div class="share-buttons d-inline-flex gap-2">
+                            <a href="#" class="share-btn" title="Facebook">
+                                <i class="ri-facebook-line"></i>
+                            </a>
+                            <a href="#" class="share-btn" title="Pinterest">
+                                <i class="ri-pinterest-line"></i>
+                            </a>
+                            <a href="#" class="share-btn" title="Twitter">
+                                <i class="ri-twitter-line"></i>
+                            </a>
+                            <a href="#" class="share-btn" title="Email">
+                                <i class="ri-mail-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
 
 
 
@@ -248,6 +376,69 @@
                     <img src="/images/workspace.jpg" alt="LORES Atelier"
                         class="img-fluid rounded-4 shadow-lg hover-glow" />
                     <div class="overlay-gradient rounded-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Features Banner -->
+<section class="service-features-banner py-4" style="background-color: #5d2a42;">
+    <div class="container">
+        <div class="row text-center text-white">
+            <div class="col-md-3 mb-3 mb-md-0">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="ri-truck-line fs-2 mb-2"></i>
+                    <h6 class="fw-bold mb-1">FREE SHIPPING</h6>
+                    <small>Free worldwide shipping and returns - customs and duties taxes included</small>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3 mb-md-0">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="ri-headphone-line fs-2 mb-2"></i>
+                    <h6 class="fw-bold mb-1">CUSTOMER SERVICE</h6>
+                    <small>We are available from monday to friday to answer your questions.</small>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3 mb-md-0">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="ri-shield-check-line fs-2 mb-2"></i>
+                    <h6 class="fw-bold mb-1">SECURE PAYMENT</h6>
+                    <small>Your payment information is processed securely.</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="ri-mail-line fs-2 mb-2"></i>
+                    <h6 class="fw-bold mb-1">CONTACT US</h6>
+                    <small>Need to contact us ? Just send us an e-mail at infoyourstore.com</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Subscription Section -->
+<section class="newsletter-section position-relative overflow-hidden" >
+    <div class="container d-flex align-items-center justify-content-start" style="min-height: 600px;">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="newsletter-card bg-white rounded-4 px-5 py-4 shadow-lg text-center">
+                    <h2 class="fw-bold mb-3" style="color: #2c3e50;">JOIN OUR COMMUNITY</h2>
+                    <p class="text-muted mb-4">
+                        Subscribe to receive updates, access to exclusive deals, and more.
+                    </p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-lg border-0 bg-light" 
+                                   placeholder="Your e-mail" 
+                                   style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
+                            <button class="btn btn-lg text-white" type="submit" 
+                                    style=" border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding: 0 30px;">
+                                SUBSCRIBE
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

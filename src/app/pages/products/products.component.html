@@ -1,61 +1,100 @@
-<div class="container py-5">
-    <!-- Header -->
-    <div class="mb-4 mt-5 text-white">
-        <h1 class="fw-bold display-5">All Products</h1>
-        <p class="text-secondary">Discover our complete collection of premium products</p>
-    </div>
-
-    <!-- Search -->
-
-    <!-- Sort + View -->
-    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-        <select class="form-select w-auto" [(ngModel)]="sortBy" (change)="handleSortChange(sortBy)">
-            <option value="featured">Featured</option>
-            <option value="newest">Newest</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Highest Rated</option>
-        </select>
-
-        <div>
-            <button class="btn btn-sm me-2" [ngClass]="viewMode === 'grid' ? 'btn-primary' : 'btn-outline-secondary'"
-                (click)="viewMode = 'grid'">
-                <i class="bi bi-grid-3x3-gap"></i>
-            </button>
-            <button class="btn btn-sm" [ngClass]="viewMode === 'list' ? 'btn-primary' : 'btn-outline-secondary'"
-                (click)="viewMode = 'list'">
-                <i class="bi bi-list"></i>
-            </button>
+<section class="products-section" id="productsSection">
+    <div class="container text-center py-5">
+        <!-- Header -->
+        <div class="mb-4 mt-5">
+            <h2 class="header text-center">
+                All Products
+            </h2>
+            <p class="text-secondary">Discover our complete collection of premium products</p>
         </div>
-    </div>
 
-    <!-- Results -->
-    <p class="text-muted">Showing {{ filteredProducts.length }} of {{ allProducts.length }} products</p>
+        <!-- Sort + View Controls -->
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <select class="form-select w-auto" [(ngModel)]="sortBy" (change)="handleSortChange(sortBy)">
+                <option value="featured">Featured</option>
+                <option value="newest">Newest</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+            </select>
 
-    <!-- Products -->
-    <div [ngClass]="viewMode === 'grid' ? 'row g-4' : ''">
-        <div *ngFor="let product of filteredProducts" [ngClass]="viewMode === 'grid' ? 'col-sm-6 col-lg-3' : 'mb-3'">
-            <div class="card  border-0 h-100">
-                <img [src]="product.image" class="card-img-top" [alt]="product.name" />
-                <div class="card-body bg-card_body text-white">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text fw-bold">
-                        ${{ product.price }}
-                        <span *ngIf="product.originalPrice" class="text-secondary text-decoration-line-through ms-2">
-                            ${{ product.originalPrice }}
-                        </span>
-                    </p>
-                    <button class="btn btn-sm btn-primary me-2" (click)="handleAddToCart(product.id)">
-                        Add to Cart
-                    </button>
+            <div>
+                <button class="btn btn-sm me-2" [ngClass]="viewMode === 'grid' ? 'btn-primary btn-color' : 'btn-outline-secondary'"
+                    (click)="viewMode = 'grid'">
+                    <i class="ri-grid-line"></i>
+                </button>
+                <button class="btn btn-sm" [ngClass]="viewMode === 'list' ? 'btn-primary btn-color' : 'btn-outline-secondary'"
+                    (click)="viewMode = 'list'">
+                    <i class="ri-list-check"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <p class="text-muted mb-4">Showing {{ filteredProducts.length }} of {{ allProducts.length }} products</p>
+
+        <!-- Products Grid -->
+        <div [ngClass]="viewMode === 'grid' ? 'row g-4' : ''">
+            <div *ngFor="let product of filteredProducts" [ngClass]="viewMode === 'grid' ? 'col-sm-6 col-lg-3' : 'mb-4'">
+                <div class="card h-100 rounded-3 border-0 product-card">
+                    <div class="position-relative">
+                        <div class="img-container">
+                            <img style="height: 400px; object-fit: cover;" 
+                                [src]="hovered === product ? product.hoverImage || product.image : product.image"
+                                (mouseenter)="hovered = product" 
+                                (mouseleave)="hovered = null"
+                                [alt]="product.name" />
+                        </div>
+                        <button class="btn btn-color btn-primary position-absolute add-to-cart-btn" 
+                                (click)="handleAddToCart(product.id)">
+                            <i class="ri-shopping-cart-2-line"></i>
+                        </button>
+                        
+                        <!-- Product badges -->
+                        <div class="position-absolute top-0 start-0 m-3">
+                            <span *ngIf="product.isNew" class="badge bg-success me-1">NEW</span>
+                            <span *ngIf="product.isSale" class="badge bg-danger">SALE</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
+                            <a [routerLink]="['/product-details', product.id]" class="card-title mb-0 text-decoration-none">
+                                <p class="card-text product-title fw-semibold mt-2">{{ product.name }}</p>
+                            </a>
+                            <div class="price-section">
+                                <span class="fw-semibold text-dark">${{ product.price }}</span>
+                                <span *ngIf="product.originalPrice" 
+                                      class="text-secondary text-decoration-line-through ms-2">${{ product.originalPrice }}</span>
+                            </div>
+                            <div class="rating-section" *ngIf="product.rating">
+                                <div class="d-flex align-items-center justify-content-center gap-1">
+                                    <div class="stars">
+                                        <i *ngFor="let star of getStars(product.rating)" 
+                                           [class]="star ? 'ri-star-fill text-warning' : 'ri-star-line text-muted'"></i>
+                                    </div>
+                                    <span class="text-muted small">({{ product.reviewCount }})</span>
+                                </div>
+                            </div>
+                            <div class="category-badge">
+                                <span class="badge bg-light text-dark">{{ product.category }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- No results -->
-    <div *ngIf="filteredProducts.length === 0" class="text-center py-5">
-        <p class="text-muted">No products found matching your criteria.</p>
-        <button class="btn btn-primary" (click)="clearFilters()">Clear Filters</button>
+        <!-- No results -->
+        <div *ngIf="filteredProducts.length === 0" class="text-center py-5">
+            <div class="empty-state">
+                <i class="ri-search-line display-1 text-muted mb-3"></i>
+                <h4 class="text-muted mb-3">No products found</h4>
+                <p class="text-muted mb-4">Try adjusting your search criteria or browse our featured products.</p>
+                <button class="btn btn-primary btn-color" (click)="clearFilters()">
+                    <i class="ri-refresh-line me-2"></i>Clear Filters
+                </button>
+            </div>
+        </div>
     </div>
-</div>
+</section>
